@@ -25,13 +25,16 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 const App: () => React$Node = () => {
+  let msg = "Hello World!!"
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <Text>
-          Hello World!
-        </Text>
+        <View　style = {{padding:50}}>
+          <Text>
+            {msg}
+          </Text>
+        </View>
       </SafeAreaView>
     </>
   );
