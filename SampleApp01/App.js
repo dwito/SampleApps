@@ -30,7 +30,7 @@ const App: () => React$Node = () => {
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <View　style = {{padding:50}}>
+        <View　style = {style.base}>
           <Text>
             {msg}
           </Text>
@@ -39,5 +39,13 @@ const App: () => React$Node = () => {
     </>
   );
 };
+
+const style = StyleSheet.create({
+base: {
+  padding:50
+}
+
+
+});
 
 export default App;
