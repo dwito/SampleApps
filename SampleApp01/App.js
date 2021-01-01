@@ -30,11 +30,17 @@ import {
 // export default App;
 // const App: () => React$Node = () => {
 export default class App extends Component {
-state = {message: ""}
-//コンストラクラの書き方はスキップ
+
+//コンストラクラでstateを初期化
+constructor(props){
+  super(props)
+  this.state = {
+    message:""
+  }
+}
+
   render() {
     let msg = "Hello World!!"
-    this.state = {message:"default"}
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -48,6 +54,7 @@ state = {message: ""}
           <Text>
             {this.state.message}
           </Text>
+          {/* <Button title="Change message!" onPress={this.doChangeAction}/> */}
           <Button title="Change message!" onPress={this.doChangeAction}/>
         </View>
       </SafeAreaView>
