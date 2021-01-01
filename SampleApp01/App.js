@@ -7,6 +7,7 @@
  */
 
 import React from 'react';
+// Viewのパーツ類はインポートしないと使えない！
 import {
   SafeAreaView,
   StyleSheet,
@@ -14,6 +15,8 @@ import {
   View,
   Text,
   StatusBar,
+  Button,
+  Alert
 } from 'react-native';
 
 import {
@@ -25,7 +28,11 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 const App: () => React$Node = () => {
+
+//コンストラクラの書き方はスキップ
+
   let msg = "Hello World!!"
+  this.state = {message:'default'}
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -34,18 +41,34 @@ const App: () => React$Node = () => {
           <Text>
             {msg}
           </Text>
+          {/* Buttonは閉じカッコが他と違うので注意 */}
+          <Button title="Click!" onPress={this.doAction}/>
+          <Text>
+            {this.state.message}
+          </Text>
+          {/* Buttonは閉じカッコが他と違うので注意 */}
+          <Button title="Click!" onPress={this.doChangeAction}/>
         </View>
       </SafeAreaView>
     </>
   );
 };
 
+doAction = () => {
+  Alert.alert('you Clicked!');
+}
+
+doChangeAction = () => {
+  this.message = "changed";
+  // this.setState({message:'changed'});
+}
+
+//constでスタイルを新規作成
 const style = StyleSheet.create({
+//View用のスタイル:base
 base: {
   padding:50
 }
-
-
 });
 
 export default App;
