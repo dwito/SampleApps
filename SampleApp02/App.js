@@ -15,6 +15,7 @@ import {
   View,
   Text,
   StatusBar,
+  Switch,
 } from 'react-native';
 
 import {
@@ -22,18 +23,30 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 export default class App extends Component {
+  
+  constructor(props){
+    super(props);
+    //bool型のvalueという変数を定義
+    this.state = {value:false};
+  }
+
   render() {
     return (
       <>
         <StatusBar barStyle="dark-content" />
         <SafeAreaView>
-          <View　style = {style.base}>
-            <Text>aaa</Text>
+          <View>
+            <Text style = {style.base}>SWitchを変更するUI</Text>
+            <Text>SWitch:{this.state.value ? "オン":"オフ"}</Text>
+            <Switch value={this.state.value} onValueChange={this.doAction}/>
           </View>
         </SafeAreaView>
       </>
     );
   }
+
+  doAction = (value) => this.setState({value:value})
+
 };
 
 //constでスタイルを新規作成
