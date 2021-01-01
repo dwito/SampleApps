@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {Component} from 'react';
 // Viewのパーツ類はインポートしないと使えない！
 import {
   SafeAreaView,
@@ -27,12 +27,14 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
-
+// export default App;
+// const App: () => React$Node = () => {
+export default class App extends Component {
+state = {message: ""}
 //コンストラクラの書き方はスキップ
-
-  let msg = "Hello World!!"
-  this.state = {message:'default'}
+  render() {
+    let msg = "Hello World!!"
+    this.state = {message:"default"}
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -46,8 +48,7 @@ const App: () => React$Node = () => {
           <Text>
             {this.state.message}
           </Text>
-          {/* Buttonは閉じカッコが他と違うので注意 */}
-          <Button title="Click!" onPress={this.doChangeAction}/>
+          <Button title="Change message!" onPress={this.doChangeAction}/>
         </View>
       </SafeAreaView>
     </>
@@ -59,9 +60,11 @@ doAction = () => {
 }
 
 doChangeAction = () => {
-  this.message = "changed";
-  // this.setState({message:'changed'});
+  this.setState({message:"aaaa"});
 }
+
+};
+
 
 //constでスタイルを新規作成
 const style = StyleSheet.create({
@@ -70,5 +73,3 @@ base: {
   padding:50
 }
 });
-
-export default App;
