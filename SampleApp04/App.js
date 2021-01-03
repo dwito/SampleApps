@@ -47,8 +47,12 @@ export default class App extends Component {
       "Content-Type":"application/json",
     },
   }).then((response)=>{
-    response.text().then((tet)=>{
-      alert(tet)
+    response.json().then((json)=>{
+    json.forEach(currentValue => {
+        // 配列の要素ごとに呼び出される処理
+        console.log(currentValue.name_ja)
+    });
+    console.log(json.length)
     });
   });
   }
