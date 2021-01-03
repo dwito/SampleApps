@@ -14,6 +14,8 @@ import {
   View,
   Text,
   StatusBar,
+  Button,
+  Alert,
 } from 'react-native';
 
 import {
@@ -30,8 +32,25 @@ export default class App extends Component {
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
+        <Button title = "Tap" onPress = {this.doAction}/>
       </SafeAreaView>
     </>
   );
   }
+
+  doAction = () =>{
+    fetch("https://covid19-japan-web-api.now.sh/api/v1/prefectures",
+    {
+    method:"GET",
+    headers:{
+      Accept:"application/json",
+      "Content-Type":"application/json",
+    },
+  }).then((response)=>{
+    response.text().then((tet)=>{
+      alert(tet)
+    });
+  });
+  }
+
 };
