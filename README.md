@@ -1,7 +1,7 @@
 # SampleApps
 
 ・公式
-https://ja.reactjs.org/docs/code-splitting.html
+https://reactnative.dev/docs/handling-text-input
 
 環境構築系
 ・M1 Mac
